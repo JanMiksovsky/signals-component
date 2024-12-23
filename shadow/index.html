@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SignalsComponent demo</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "@preact/signals-core": "../node_modules/@preact/signals-core/dist/signals-core.module.js"
+        }
+      }
+    </script>
+    <script type="module" src="./IncrementDecrement.js"></script>
+  </head>
+  <body>
+    <increment-decrement value="-2"></increment-decrement>
+    <increment-decrement value="3"></increment-decrement>
+    <increment-decrement value="5"></increment-decrement>
+  </body>
+</html>
