@@ -29,7 +29,7 @@ export default class IncrementDecrement extends HTMLElement {
     return this.valueSignal.value;
   }
   set value(value) {
-    this.valueSignal.value = value;
+    this.valueSignal.value = parseInt(value);
   }
 }
 
