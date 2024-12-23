@@ -12,6 +12,14 @@ export default class IncrementDecrement extends AttributeMarshallingMixin(
     this.valueSignal = signal(0);
   }
 
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === "value") {
+      this.value = Number(newValue);
+    } else {
+      super.attributeChangedCallback(name, oldValue, newValue);
+    }
+  }
+
   connectedCallback() {
     if (super.connectedCallback) {
       super.connectedCallback();
@@ -36,7 +44,7 @@ export default class IncrementDecrement extends AttributeMarshallingMixin(
     return this.valueSignal.value;
   }
   set value(value) {
-    this.valueSignal.value = parseInt(value);
+    this.valueSignal.value = value;
   }
 
   get [template]() {
