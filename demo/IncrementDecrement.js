@@ -11,18 +11,31 @@ export default class IncrementDecrement extends HTMLElement {
       super.connectedCallback();
     }
 
-    this.querySelector("#increment").addEventListener("click", () => {
+    const increment = this.element("increment");
+    const decrement = this.element("decrement");
+    const value = this.element("value");
+
+    increment?.addEventListener("click", () => {
       this.value += 1;
     });
-    this.querySelector("#decrement").addEventListener("click", () => {
+    decrement?.addEventListener("click", () => {
       this.value -= 1;
     });
 
-    const valueElement = this.querySelector("#value");
-    this.value = valueElement.textContent;
-    effect(() => {
-      valueElement.textContent = this.value;
-    });
+    if (value) {
+      this.value = value.textContent;
+      effect(() => {
+        value.textContent = this.value;
+      });
+    }
+  }
+
+  element(id) {
+    const element = this.querySelector(`#${id}`);
+    if (!element) {
+      console.warn(`Missing element with id "${id}"`, this);
+    }
+    return element;
   }
 
   get value() {
