@@ -1,0 +1,7 @@
+{
+  "name": "signals-component",
+  "type": "module",
+  "dependencies": {
+    "@preact/signals-core": "1.8.0"
+  }
+}
