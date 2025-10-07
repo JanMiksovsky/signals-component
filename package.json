@@ -3,5 +3,8 @@
   "type": "module",
   "dependencies": {
     "@preact/signals-core": "1.8.0"
+  },
+  "scripts": {
+    "postinstall": "mkdir -p ./lib && cp ./node_modules/@preact/signals-core/dist/signals-core.module.js ./lib/signals-core.module.js"
   }
 }
